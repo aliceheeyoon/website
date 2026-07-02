@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alice H. Lee</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page">
+    <div class="name-block">
+      <p class="name">Alice Heeyoon Lee</p>
+      <div class="shelf-links">
+        <a class="shelf-link" href="bookshelf.html">bookshelf</a>
+        <a class="shelf-link" href="film.html">film</a>
+        <a class="shelf-link" href="music.html">music</a>
+        <a class="shelf-link" href="thoughts.html">thoughts</a>
+      </div>
+    </div>
+
+    <div class="timeline-wrap">
+      <div class="timeline-track">
+        <div class="node" data-index="0">
+          <div class="dot"></div>
+          <div class="node-label">Cello<br>2009-2022</div>
+        </div>
+        <div class="node" data-index="1">
+          <div class="dot"></div>
+          <div class="node-label">Speech &amp; debate<br>2022-2024</div>
+        </div>
+        <div class="node" data-index="2">
+          <div class="dot"></div>
+          <div class="node-label">Journalism<br>2023-2024</div>
+        </div>
+        <div class="node" data-index="3">
+          <div class="dot"></div>
+          <div class="node-label">Swarthmore<br>2024</div>
+        </div>
+        <div class="node" data-index="4">
+          <div class="dot"></div>
+          <div class="node-label">Seoul<br>2025</div>
+        </div>
+        <div class="node" data-index="5">
+          <div class="dot"></div>
+          <div class="node-label">Telehealth<br>2026</div>
+        </div>
+      </div>
+
+      <div class="detail" id="detail">
+        <p class="detail-era" id="detail-era"></p>
+        <p class="detail-title" id="detail-title"></p>
+        <p class="detail-body" id="detail-body"></p>
+        <a class="detail-link" id="detail-link" href="#"></a>
+      </div>
+    </div>
+
+    <div class="contact-block">
+      <a href="mailto:aliceheeyoon@gmail.com">aliceheeyoon@gmail.com</a>
+      <div class="footer-socials">
+        <a href="https://www.linkedin.com/in/alice-lee-b05761338/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.instagram.com/alice.heeyoon?igsh=MXRoZW5rOTh4NXNlNQ%3D%3D&utm_source=qr" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://substack.com/@aliceheeyoon/posts?r=51v2ha&utm_campaign=profile&utm_medium=profile-page" target="_blank" rel="noopener">Substack</a>
+        <a href="https://www.goodreads.com/user/show/128325542-alice-lee" target="_blank" rel="noopener">Goodreads</a>
+        <a href="https://x.com/alicehlee5" target="_blank" rel="noopener">X</a>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const chapters = [
+      {
+        era: 'Elementary - High School',
+        title: 'Discipline',
+        body: 'Grew up with musician parents and on the track to become a professional cellist. Went to a top music school & music camps that even Yo-yo Ma went to as a kid. This era of my life taught me how to show up every day and do the work, and even though I am no longer pursuing music seriously, it built the foundation for how I live.',
+        link: 'chapters/cello-track.html',
+        cta: 'on cello →'
+      },
+      {
+        era: 'High school',
+        title: 'Speech',
+        body: 'I grew up conscious of communication eloquence having jumped back and forth between different cultural and linguistic settings so often. Speaking up was terrifying to me because I didnt want to be misunderstood. My solution was to read as much as I possibly could. Then, I started competitive speech and debate. Became a finalist in my first competition. Shaped my ability to communicate complex ideas and thoughts, and also gave me the confidence to speak, to tell stories, and to persuade.',
+        link: 'chapters/speech-debate.html',
+        cta: 'on competitive speech →'
+      },
+      {
+        era: 'Summer 2023',
+        title: 'Stories',
+        body: 'Studied under current Washington editor of USA Today at Harvard. Learned that editorial writing came pretty naturally to me, and I was fascinated by the art of telling narratives in the midst of news, investigating behind the scenes and encountering new perspectives. Considered pursuing journalism professionally. Decided not to, and am now writing for college papers, but this was the start to my growth in understanding the art of storytelling.',
+        link: 'chapters/journalism.html',
+        cta: 'on journalism →'
+      },
+      {
+        era: 'College',
+        title: 'Academia',
+        body: 'Chose Swarthmore because I had no idea what I wanted to do with my life. Took random courses like engineering, went pretty far with math, and ended up falling in love with political philosophy. Studied modern political theory, especially democratic theory & tech philosophy. The most intellectually stimulating environment I have ever been in.',
+        link: 'chapters/research.html',
+        cta: 'on college →'
+      },
+      {
+        era: 'Summer 2025 · Seoul',
+        title: 'Web Growth, CSM, UX, & Design',
+        body: 'Two internships (Korea & Philly) at the same time. Developed web growth skills by rebuilding and working through SEO for the website @ VESSL AI (AI infrastructure). Led UX research and marketing storytelling @ Social Ladder (Marketing SaaS that works with companies like Medicube, Lululemon, Beatbox). Took computer graphics & design at Yonsei University. Slept very little, but experienced a lot.',
+        link: 'chapters/seoul-2025.html',
+        cta: 'on my summer of 2025 →'
+      },
+      {
+        era: 'Summer 2026 · Philadelphia',
+        title: 'GTM, Product & Content Marketing',
+        body: 'Marketing and GTM @ NeuroFlow.',
+        link: 'chapters/telehealth-2026.html',
+        cta: 'more on my summer of 2026 →'
+      }
+    ];
+
+    const nodes = document.querySelectorAll('.node');
+    const detail = document.getElementById('detail');
+    const detailEra = document.getElementById('detail-era');
+    const detailTitle = document.getElementById('detail-title');
+    const detailBody = document.getElementById('detail-body');
+    const detailLink = document.getElementById('detail-link');
+
+    let currentIndex = 5;
+
+    function setChapter(index) {
+      currentIndex = index;
+      const ch = chapters[index];
+
+      localStorage.setItem('lastChapterIndex', index);
+
+      detail.classList.add('fade');
+
+      setTimeout(() => {
+        detailEra.textContent = ch.era;
+        detailTitle.textContent = ch.title;
+        detailBody.textContent = ch.body;
+        detailLink.textContent = ch.cta;
+        detailLink.href = ch.link;
+
+        nodes.forEach((n, i) => n.classList.toggle('active', i === index));
+
+        detail.classList.remove('fade');
+      }, 350);
+    }
+
+    nodes.forEach((node, i) => {
+      node.addEventListener('click', () => setChapter(i));
+    });
+
+    const WHEEL_THRESHOLD = 50;
+    const SCROLL_COOLDOWN = 600;
+    let wheelAccum = 0;
+    let scrollLocked = false;
+
+    window.addEventListener('wheel', (e) => {
+      e.preventDefault();
+      if (scrollLocked) return;
+
+      wheelAccum += e.deltaY;
+      if (Math.abs(wheelAccum) < WHEEL_THRESHOLD) return;
+
+      const direction = wheelAccum < 0 ? -1 : 1;
+      wheelAccum = 0;
+
+      const next = currentIndex + direction;
+      if (next < 0 || next > chapters.length - 1) return;
+
+      scrollLocked = true;
+      setChapter(next);
+      setTimeout(() => { scrollLocked = false; }, SCROLL_COOLDOWN);
+    }, { passive: false });
+
+    const savedIndex = parseInt(localStorage.getItem('lastChapterIndex'), 10);
+    const startIndex = (!isNaN(savedIndex) && savedIndex >= 0 && savedIndex < chapters.length) ? savedIndex : 5;
+    setChapter(startIndex);
+  </script>
+</body>
+</html>

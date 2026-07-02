@@ -35,7 +35,7 @@ html, body {
 
 .name-block {
   position: absolute;
-  top: 12rem;
+  top: 13.5rem;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -115,7 +115,7 @@ html, body {
 
 .timeline-wrap {
   position: absolute;
-  top: 34vh;
+  top: 37vh;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
